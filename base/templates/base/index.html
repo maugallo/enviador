@@ -1,0 +1,40 @@
+{% extends 'estilo.html' %}
+
+{% block content %}
+
+
+<div class="container">
+    <h3>¿Qué es esto?</h3>
+    <p>Esta página es uno de mis primeros proyectos utilizando Django.
+        Este sitio permitirá al usuario poder enviar un email a cualquier persona utilizando el correo electrónico que
+        la propia página ofrece.</p>
+    <p>Se puede comenzar haciendo click <a href="{% url 'enviar' %}">acá</a>.</p>
+</div>
+
+<div class="container">
+    <h3>¿Qué aprendí con este proyecto?</h3>
+    <p>Con este proyecto aprendí a:</p>
+    <ul>
+        <li>
+            Poder enviar emails a través de Django.
+        </li>
+        <li>
+            Conceptos internos sobre cómo una página web envía emails, implementando los servidores SMTP o el protocolo
+            de seguridad TLS.
+        </li>
+        <li>
+            Crear un form básico donde poder ingresar información y verificarla.
+        </li>
+        <li>
+            Conectar una function-based view con un form.
+        </li>
+        <li>
+            Permitir adjuntar archivos al mail.
+        </li>
+        <li>
+            Usar la librería Environ para proteger información sensible.
+        </li>
+    </ul>
+</div>
+
+{% endblock %}

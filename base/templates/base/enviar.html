@@ -1,0 +1,42 @@
+{% extends 'estilo.html' %}
+
+{% block content %}
+
+<div class="button">
+    <a href="{% url 'index' %}">&#x1F860; Volver</a>
+</div>
+<div class="container">
+    <div class="form">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <p>Ingrese los datos a continuación:</p>
+            <label>Receptores:</label>
+            <input type="email" name="receptor">
+            <input type="submit" name="agregar" value="Agregar">
+            <input type="submit" name="limpiar" value="Limpiar">
+        </form>
+
+        <small>Lista de receptores:</small>
+        <br>
+        {% for receptor in lista_receptores %}
+        <small>{{receptor}} -</small>
+        {% endfor %}
+    </div>
+    <p> </p>
+</div>
+<div class="container">
+    <div class="form">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <!-- De esta forma no me van a aparecer los campos 'this field is required'-->
+            <p>{{field.label}}
+                {{field}}</p>
+            {% endfor %}
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+    </div>
+    <p> </p>
+</div>
+
+{% endblock %}
